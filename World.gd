@@ -4,7 +4,8 @@ var TileableObjects = {
 	"Player": preload("res://Player.tscn"),
 	"Coin": preload("res://Coin.tscn"),
 	"Ghost": preload("res://Ghost.tscn"),
-	"Pumpkin": preload("res://Pumpkin.tscn")
+	"Pumpkin": preload("res://Pumpkin.tscn"),
+	"KillBlock": preload("res://KillBlock.tscn")
 }
 
 func _ready():

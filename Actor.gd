@@ -125,7 +125,8 @@ func _ready():
 	pass
 
 func die():
-	yield(get_tree().create_timer(1), "timeout")
+	set_modulate(Color(1,0,0,0.5))
+	yield(get_tree().create_timer(0.5), "timeout")
 	get_tree().reload_current_scene()
 	
 func update_motion_state():

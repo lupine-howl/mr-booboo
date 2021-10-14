@@ -3,61 +3,60 @@
 [ext_resource path="res://Enemy1.gd" type="Script" id=1]
 [ext_resource path="res://assets/tileset.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 160, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
 region = Rect2( 144, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
 region = Rect2( 160, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 176, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 6, 4 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 6, 6 )
 
 [node name="Pumpkin" type="Node2D"]
 
 [node name="Pumpkin" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
-jump_force = 100
 max_speed = Vector2( 30, 370 )
 default_scale = -1
 gravity = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Pumpkin"]
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "move"
 frame = 1
 playing = true
@@ -66,7 +65,7 @@ playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Pumpkin/AnimatedSprite/HitArea"]
 position = Vector2( -2, 2 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Pumpkin/AnimatedSprite"]
 position = Vector2( -8, 8 )
@@ -75,7 +74,7 @@ cast_to = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pumpkin"]
 position = Vector2( 0, 2 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pumpkin"]
 margin_left = -40.0
