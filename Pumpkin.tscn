@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://assets/tileset.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 144, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 144, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 176, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "move",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6, 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6, 6 )
+
+[node name="Pumpkin" type="Node2D"]
+
+[node name="Pumpkin" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+jump_force = 100
+max_speed = Vector2( 30, 370 )
+default_scale = -1
+gravity = 5
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Pumpkin"]
+frames = SubResource( 4 )
+animation = "move"
+frame = 1
+playing = true
+
+[node name="HitArea" type="Area2D" parent="Pumpkin/AnimatedSprite"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pumpkin/AnimatedSprite/HitArea"]
+position = Vector2( -2, 2 )
+shape = SubResource( 5 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Pumpkin/AnimatedSprite"]
+position = Vector2( -8, 8 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pumpkin"]
+position = Vector2( 0, 2 )
+shape = SubResource( 6 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pumpkin"]
+margin_left = -40.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 24.0
+rect_scale = Vector2( 0.5, 0.5 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Pumpkin/AnimatedSprite/HitArea" to="Pumpkin" method="_on_HitArea_body_entered"]
