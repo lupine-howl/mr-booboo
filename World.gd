@@ -8,6 +8,8 @@ var TileableObjects = {
 	"KillBlock": preload("res://KillBlock.tscn")
 }
 
+export var nextLevel = ""
+
 func _ready():
 	var t = $TileMap
 	var cells = t.get_used_cells()

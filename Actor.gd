@@ -10,6 +10,8 @@ var current_state = "idle"
 
 #controls, action, animation
 
+var overlapping_areas = []
+
 var controls = {
 	"direction": Vector2.ZERO,
 	"left": 0,
@@ -22,6 +24,12 @@ var controls = {
 }
 
 func update_controls():
+	
+	if(Input.is_action_pressed("ui_up")):
+		for area in overlapping_areas:
+			if(area.name=="Door"):
+				area.open(self)
+	
 	state.direction.x = 0
 	controls.left = Input.is_action_pressed("ui_left")
 	controls.right = Input.is_action_pressed("ui_right")

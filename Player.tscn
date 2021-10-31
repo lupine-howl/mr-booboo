@@ -105,4 +105,6 @@ smoothing_speed = 20.0
 stream = ExtResource( 3 )
 volume_db = -20.0
 
+[connection signal="area_entered" from="Player/AnimatedSprite/HitArea" to="Player" method="_on_HitArea_area_entered"]
+[connection signal="area_exited" from="Player/AnimatedSprite/HitArea" to="Player" method="_on_HitArea_area_exited"]
 [connection signal="body_entered" from="Player/AnimatedSprite/HitArea" to="Player" method="_on_HitArea_body_entered"]

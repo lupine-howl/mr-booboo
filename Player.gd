@@ -15,3 +15,14 @@ func _on_HitArea_body_entered(body):
 			hit()
 		
 	pass # Replace with function body.
+
+
+func _on_HitArea_area_entered(area):
+	print(area.name)
+	overlapping_areas.push_back(area)
+	pass # Replace with function body.
+
+
+func _on_HitArea_area_exited(area):
+	overlapping_areas.erase(area)
+	pass # Replace with function body.
