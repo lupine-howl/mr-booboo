@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jaws - Theme song.mp3-67a122e10095d839fb0fd3e456bc4f18.mp3str"
+
+[deps]
+
+source_file="res://Jaws - Theme song.mp3"
+dest_files=[ "res://.import/Jaws - Theme song.mp3-67a122e10095d839fb0fd3e456bc4f18.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
