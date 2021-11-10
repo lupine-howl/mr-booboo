@@ -16,16 +16,19 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="KillBlock"]
 texture = ExtResource( 1 )
+offset = Vector2( 8, 8 )
 hframes = 22
 vframes = 20
 frame = 185
 
 [node name="CollisionShape" type="CollisionShape2D" parent="KillBlock"]
+position = Vector2( 8, 8 )
 shape = SubResource( 1 )
 
 [node name="HitArea" type="Area2D" parent="KillBlock"]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="KillBlock/HitArea"]
+position = Vector2( 8, 8 )
 shape = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World.gd" type="Script" id=3]
+[ext_resource path="res://assets/yoop.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/background.png" type="Texture" id=5]
+[ext_resource path="res://StartPosition.tscn" type="PackedScene" id=6]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -100 )
+transform = Transform2D( 1, 0, 0, 1, 0, -100 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 768, 0 )
+
+[node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="Door" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1, -80 )
+leads_to = "Jace"
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1, 0 )
+tile_data = PoolIntArray( -262153, 4, 0, -262152, 2, 0, -262151, 2, 0, -262149, 2, 0, -262148, 2, 0, -262147, 2, 0, -262146, 2, 0, -262145, 3, 0, -196618, 0, 0, -196617, 0, 0, -196616, 8, 0, -196615, 8, 0, -196614, 8, 0, -196613, 8, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0 )
+
+[node name="StartPosition" parent="." instance=ExtResource( 6 )]
+position = Vector2( -136, -80 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

@@ -85,8 +85,8 @@ func update_jumping():
 	if(controls.direction.x!=0):
 		state.direction.x = controls.direction.x
 		
-	if(is_on_floor()):
-		set_state("idle")
+	#if(is_on_floor()):
+	#	set_state("idle")
 	
 	if(controls.jump):
 		state.direction.y = -1
@@ -102,11 +102,6 @@ func update_falling():
 	if(is_on_floor()):
 		set_state("idle")
 
-var states = {
-	"jump":{
-		"update_func": "update_jump"
-	}
-}
 
 var state = {
 	"animation": "idle",
@@ -150,8 +145,6 @@ func update_motion_state():
 		state.motion = "idle"
 		if(Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_right")):
 			state.motion = "walk"
-		if(Input.is_action_just_pressed("ui_accept")):
-			state.motion = "jump"
 			
 	elif(state.motion != "jumping"):
 		state.motion = "falling"
@@ -175,7 +168,7 @@ func update_velocity():
 	#elif(velocity.y > 0 && is_on_wall()):
 	#	wall_slide_adjustment = 0
 	
-	velocity.y += (gravity*wall_slide_adjustment)
+	velocity.y += gravity
 		
 		
 	if(velocity.x > -1 && velocity.x < 1):

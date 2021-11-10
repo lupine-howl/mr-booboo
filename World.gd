@@ -5,7 +5,8 @@ var TileableObjects = {
 	"Coin": preload("res://Coin.tscn"),
 	"Ghost": preload("res://Ghost.tscn"),
 	"Pumpkin": preload("res://Pumpkin.tscn"),
-	"KillBlock": preload("res://KillBlock.tscn")
+	"KillBlock": preload("res://KillBlock.tscn"),
+	"BounceBlock": preload("res://BounceBlock.tscn")
 }
 
 export var nextLevel = ""
@@ -20,9 +21,12 @@ func _ready():
 			tile_name = tile_name.lstrip("=")
 			if(tile_name in TileableObjects):
 				var new_item = TileableObjects[tile_name].instance()
+				if(tile_name=="BounceBlock"):
+					print(new_item)
 				if(new_item != null):
 					new_item.position = t.map_to_world(cell_coords)
-					new_item.position.y -= 4
+					#new_item.position.y -= 4
+					new_item.position.x += 1
 					add_child(new_item)
 					t.set_cellv(cell_coords, -1)			
 			

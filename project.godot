@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Mr Booboo in Bouncy Land 2"
-run/main_scene="res://levels/Behan.tscn"
+run/main_scene="res://levels/Leo.tscn"
 config/icon="res://icon.png"
 
 [input]

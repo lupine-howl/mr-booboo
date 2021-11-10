@@ -216,3 +216,17 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 7/shape_one_way_margin = 0.0
 7/shapes = [  ]
 7/z_index = 0
+8/name = "=BounceBlock"
+8/texture = ExtResource( 1 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 144, 144, 16, 16 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
